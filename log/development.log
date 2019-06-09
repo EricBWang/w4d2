@@ -1,0 +1,220 @@
+  [1m[35m (535.1ms)[0m  [1m[35mCREATE DATABASE "Cats_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (404.6ms)[0m  [1m[35mCREATE DATABASE "Cats_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-06-08 15:39:32 -0700
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/46deb09b07bc9121/variables" for ::1 at 2019-06-08 15:39:33 -0700
+  [1m[35m (54.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(53283042395386965)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCats (20190608215241)
+  [1m[35m (5.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190608215241_create_cats.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190608215241"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-08 22:39:52.664548"], ["updated_at", "2019-06-08 22:39:52.664548"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(53283042395386965)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-06-08 15:44:04 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 28ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-08 15:44:12 -0700
+Processing by CatsController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - You need to supply at least one validation:
+  app/models/cat.rb:6:in `<class:Cat>'
+  app/models/cat.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:3:in `index'
+
+Started POST "/__better_errors/07e91c069f06d7f2/variables" for ::1 at 2019-06-08 15:44:12 -0700
+Started GET "/cats" for ::1 at 2019-06-08 15:48:09 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (7.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 755ms (Views: 740.8ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-08 15:48:11 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-08 15:48:12 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (3.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2019-06-08 17:22:37 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ericwang/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 30ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-06-08 17:22:53 -0700
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:3
+  Rendered cats/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 209ms (Views: 195.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 17:22:55 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 13.4ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"cats", :id=>nil}, missing required keys: [:id]:
+  app/views/cats/new.html.erb:2:in `_app_views_cats_new_html_erb__82753016334460650_70262349094100'
+  app/controllers/cats_controller.rb:14:in `new'
+
+Started POST "/__better_errors/6fb69b5d7794af65/variables" for ::1 at 2019-06-08 17:22:56 -0700
+Started GET "/cats/new_cagt" for ::1 at 2019-06-08 17:24:38 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"new_cagt"}
+  [1m[36mCat Load (14.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE (new_cagt) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 14.1ms)
+
+
+
+PG::UndefinedColumn - ERROR:  column "new_cagt" does not exist
+LINE 1: SELECT  "cats".* FROM "cats" WHERE (new_cagt) LIMIT $1
+                                            ^
+:
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/6388d91c4ef4ea36/variables" for ::1 at 2019-06-08 17:24:38 -0700
+Started GET "/cats/new_cat" for ::1 at 2019-06-08 17:24:40 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"new_cat"}
+  [1m[36mCat Load (2.9ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE (new_cat) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.9ms)
+
+
+
+PG::UndefinedColumn - ERROR:  column "new_cat" does not exist
+LINE 1: SELECT  "cats".* FROM "cats" WHERE (new_cat) LIMIT $1
+                                            ^
+:
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/5df42eb59f10a042/variables" for ::1 at 2019-06-08 17:24:41 -0700
+Started GET "/cats/new_cat_url" for ::1 at 2019-06-08 17:24:53 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"new_cat_url"}
+  [1m[36mCat Load (5.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE (new_cat_url) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:8
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.3ms)
+
+
+
+PG::UndefinedColumn - ERROR:  column "new_cat_url" does not exist
+LINE 1: SELECT  "cats".* FROM "cats" WHERE (new_cat_url) LIMIT $1
+                                            ^
+:
+  app/controllers/cats_controller.rb:8:in `show'
+
+Started POST "/__better_errors/690d4c9ef29fc637/variables" for ::1 at 2019-06-08 17:24:54 -0700
+Started GET "/cats/new" for ::1 at 2019-06-08 17:28:31 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 17:37:32 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 18:05:17 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (0.7ms)
+  Rendered cats/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 16.6ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 18:05:17 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (0.9ms)
+  Rendered cats/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 18:05:18 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (1.1ms)
+  Rendered cats/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for ::1 at 2019-06-08 18:06:41 -0700
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/_form.html.erb (0.7ms)
+  Rendered cats/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for ::1 at 2019-06-08 18:07:00 -0700
+
+AbstractController::ActionNotFound - The action 'create' could not be found for CatsController:
+
+Started POST "/__better_errors/dc2235806acec1c8/variables" for ::1 at 2019-06-08 18:07:00 -0700
